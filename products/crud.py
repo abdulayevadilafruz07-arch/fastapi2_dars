@@ -8,3 +8,9 @@ def create_product(db:Session, data: ProductCreate):
     db.commit()
     db.refresh(product)
     return product
+
+def get_products(db:Session):
+    return db.query(Products).all() #Products.objects == db.query(Products).get(Products_id==pk).first
+
+def get_product(db:Session, product_id: int):
+    return db.query(Products).filter(Products.id == product_id).first()
