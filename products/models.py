@@ -57,3 +57,11 @@ class Orders(Base):
 
 
 
+class Books(Base):
+    __tablename__ = 'books'
+    id = Column(Integer, primary_key=True)
+    title = Column(String(20))
+    desc = Column(Text, nullable=False)
+    price = Column(Numeric(10, 2))
+    created_at = Column(DateTime, default=datetime.now())
+
